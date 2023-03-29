@@ -18,7 +18,7 @@ const Dashboard = () => {
         <p className={styles['welcome-text']}>
           Welcome, {user?.metadata?.firstName || 'stranger'}{' '}
           <span role="img" alt="hello">
-            👋
+            👋 Hello
           </span>
         </p>
 
