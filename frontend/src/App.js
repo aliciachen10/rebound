@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import { NhostClient, NhostProvider } from '@nhost/react'
-import { NhostApolloProvider } from '@nhost/react-apollo'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { NhostClient, NhostProvider } from "@nhost/react"
+import { NhostApolloProvider } from "@nhost/react-apollo"
 
-import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedRoute from "./components/ProtectedRoute"
 
-import Layout from './components/Layout';
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import Dashboard from './pages/Dashboard';
-import Profile from './pages/Profile';
+import Layout from "./components/Layout";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
 
 const nhost = new NhostClient({
   subdomain: "tbadshvjfkcftccbsjch",

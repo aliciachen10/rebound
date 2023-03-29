@@ -1,6 +1,6 @@
-import styles from '../styles/components/Input.module.css';
+import styles from "../styles/components/Input.module.css";
 
-const Input = ({ type = 'text', label = '', ...props }) => {
+const Input = ({ type = "text", label = "", ...props }) => {
   return (
     <div className={styles.container}>
       {label ? <label className={styles.label}>{label}</label> : null}

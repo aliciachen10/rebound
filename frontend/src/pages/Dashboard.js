@@ -1,8 +1,8 @@
-import styles from '../styles/pages/Dashboard.module.css';
+import styles from "../styles/pages/Dashboard.module.css";
 
-import { useOutletContext } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
-import SimpleForm from '../components/chatbot/SimpleForm'
+import { useOutletContext } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import SimpleForm from "../components/chatbot/SimpleForm"
 
 const Dashboard = () => {
   const { user } = useOutletContext();
@@ -16,15 +16,15 @@ const Dashboard = () => {
       <div>
         <h2 className={styles.title}>Dashboard</h2>
 
-        <p className={styles['welcome-text']}>
-          Welcome, {user?.metadata?.firstName || 'stranger'}{' '}
+        <p className={styles["welcome-text"]}>
+          Welcome, {user?.metadata?.firstName || "stranger"}{" "}
           <span role="img" alt="hello">
-            👋 Hello it's me
+            👋 Hello it"s me
           </span>
           <SimpleForm />
         </p>
 
-        <p className={styles['info-text']}>
+        <p className={styles["info-text"]}>
           Edit the <code>src/pages/Dashboard.js</code> file to populate this
           page.
         </p>

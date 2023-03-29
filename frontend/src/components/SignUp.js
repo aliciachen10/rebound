@@ -1,15 +1,15 @@
-import styles from '../styles/components/SignUp.module.css'
-import { useState } from 'react'
-import { useSignUpEmailPassword } from '@nhost/react'
-import { Link, Navigate } from 'react-router-dom'
-import Input from './Input'
-import Spinner from './Spinner'
+import styles from "../styles/components/SignUp.module.css"
+import { useState } from "react"
+import { useSignUpEmailPassword } from "@nhost/react"
+import { Link, Navigate } from "react-router-dom"
+import Input from "./Input"
+import Spinner from "./Spinner"
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const { signUpEmailPassword, isLoading, isSuccess, needsEmailVerification, isError, error } =
     useSignUpEmailPassword()
@@ -35,18 +35,18 @@ const SignUp = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <div className={styles['logo-wrapper']}>
-          <img src={process.env.PUBLIC_URL + 'logo.svg'} alt="logo" />
+        <div className={styles["logo-wrapper"]}>
+          <img src={process.env.PUBLIC_URL + "logo.svg"} alt="logo" />
         </div>
 
         {needsEmailVerification ? (
-          <p className={styles['verification-text']}>
+          <p className={styles["verification-text"]}>
             {/* Please check your mailbox and follow the verification link to verify your email. */}
             <Link to="/sign-in" className={styles.link}>Click here</Link> to sign in
           </p>
         ) : (
           <form onSubmit={handleOnSubmit} className={styles.form}>
-            <div className={styles['input-group']}>
+            <div className={styles["input-group"]}>
               <Input
                 label="First name"
                 value={firstName}
@@ -80,16 +80,16 @@ const SignUp = () => {
             />
 
             <button type="submit" disabled={disableForm} className={styles.button}>
-              {isLoading ? <Spinner size="sm" /> : 'Create account'}
+              {isLoading ? <Spinner size="sm" /> : "Create account"}
             </button>
 
-            {isError ? <p className={styles['error-text']}>{error?.message}</p> : null}
+            {isError ? <p className={styles["error-text"]}>{error?.message}</p> : null}
           </form>
         )}
       </div>
 
       <p className={styles.text}>
-        Already have an account?{' '}
+        Already have an account?{" "}
         <Link to="/sign-in" className={styles.link}>
           Sign in
         </Link>

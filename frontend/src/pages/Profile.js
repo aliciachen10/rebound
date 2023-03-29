@@ -1,12 +1,12 @@
-import styles from '../styles/pages/Profile.module.css';
+import styles from "../styles/pages/Profile.module.css";
 
-import { useState } from 'react';
-import { Helmet } from 'react-helmet';
-import { useOutletContext } from 'react-router-dom';
-import Input from '../components/Input';
+import { useState } from "react";
+import { Helmet } from "react-helmet";
+import { useOutletContext } from "react-router-dom";
+import Input from "../components/Input";
 
-import { gql, useMutation } from '@apollo/client'
-import { toast } from 'react-hot-toast'
+import { gql, useMutation } from "@apollo/client"
+import { toast } from "react-hot-toast"
 
 const UPDATE_USER_MUTATION = gql`
   mutation ($id: uuid!, $displayName: String!, $metadata: jsonb) {
@@ -20,8 +20,8 @@ const UPDATE_USER_MUTATION = gql`
 const Profile = () => {
   const { user } = useOutletContext();
 
-  const [firstName, setFirstName] = useState(user?.metadata?.firstName ?? '');
-  const [lastName, setLastName] = useState(user?.metadata?.lastName ?? '');
+  const [firstName, setFirstName] = useState(user?.metadata?.firstName ?? "");
+  const [lastName, setLastName] = useState(user?.metadata?.lastName ?? "");
 
   const isFirstNameDirty = firstName !== user?.metadata?.firstName;
   const isLastNameDirty = lastName !== user?.metadata?.lastName;
@@ -47,9 +47,9 @@ const Profile = () => {
           }
         }
       })
-      toast.success('Updated successfully', { id: 'updateProfile' })
+      toast.success("Updated successfully", { id: "updateProfile" })
     } catch (error) {
-      toast.error('Unable to update profile', { id: 'updateProfile' })
+      toast.error("Unable to update profile", { id: "updateProfile" })
     }
   }
 
@@ -67,8 +67,8 @@ const Profile = () => {
 
         <div className={styles.card}>
           <form onSubmit={updateUserProfile} className={styles.form}>
-            <div className={styles['form-fields']}>
-              <div className={styles['input-group']}>
+            <div className={styles["form-fields"]}>
+              <div className={styles["input-group"]}>
                 <Input
                   type="text"
                   label="First name"
@@ -84,7 +84,7 @@ const Profile = () => {
                   required
                 />
               </div>
-              <div className={styles['input-email-wrapper']}>
+              <div className={styles["input-email-wrapper"]}>
                 <Input
                   type="email"
                   label="Email address"
@@ -94,7 +94,7 @@ const Profile = () => {
               </div>
             </div>
 
-            <div className={styles['form-footer']}>
+            <div className={styles["form-footer"]}>
               <button
                 type="submit"
                 disabled={!isProfileFormDirty}
