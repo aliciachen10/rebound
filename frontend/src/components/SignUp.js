@@ -41,7 +41,8 @@ const SignUp = () => {
 
         {needsEmailVerification ? (
           <p className={styles['verification-text']}>
-            Please check your mailbox and follow the verification link to verify your email.
+            {/* Please check your mailbox and follow the verification link to verify your email. */}
+            <Link to="/sign-in" className={styles.link}>Click here</Link> to sign in
           </p>
         ) : (
           <form onSubmit={handleOnSubmit} className={styles.form}>
