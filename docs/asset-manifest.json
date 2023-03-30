@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rebound/static/css/main.32c74103.css",
+    "main.js": "/rebound/static/js/main.4afa0cd3.js",
+    "static/js/787.f388590e.chunk.js": "/rebound/static/js/787.f388590e.chunk.js",
+    "index.html": "/rebound/index.html",
+    "main.32c74103.css.map": "/rebound/static/css/main.32c74103.css.map",
+    "main.4afa0cd3.js.map": "/rebound/static/js/main.4afa0cd3.js.map",
+    "787.f388590e.chunk.js.map": "/rebound/static/js/787.f388590e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32c74103.css",
+    "static/js/main.4afa0cd3.js"
+  ]
+}
