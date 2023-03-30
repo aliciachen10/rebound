@@ -10,6 +10,8 @@
 
 # production
 /build
+/.nhost
+.nhost
 
 # misc
 .DS_Store
