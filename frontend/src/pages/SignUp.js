@@ -7,7 +7,7 @@ const SignUpPage = () => {
   return (
     <>
       <Helmet>
-        <title>Sign up - Nhost</title>
+        <title>Sign up - Rebound Health</title>
       </Helmet>
 
       <div className={styles.container}>

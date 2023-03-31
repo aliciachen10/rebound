@@ -10,7 +10,7 @@ const Dashboard = () => {
   return (
     <>
       <Helmet>
-        <title>Dashboard - Nhost</title>
+        <title>Dashboard - Rebound Health</title>
       </Helmet>
 
       <div>
@@ -19,14 +19,13 @@ const Dashboard = () => {
         <p className={styles["welcome-text"]}>
           Welcome, {user?.metadata?.firstName || "stranger"}{" "}
           <span role="img" alt="hello">
-            👋 Hello it"s me
+            👋 
           </span>
           <SimpleForm />
         </p>
 
         <p className={styles["info-text"]}>
-          Edit the <code>src/pages/Dashboard.js</code> file to populate this
-          page.
+        Please note: This program is based on the leading evidence-based methods for healing from trauma, and you can use it by itself or in conjunction with therapy. This is a wellbeing program, not healthcare: we don’t provide medical advice, medical care, or official diagnoses, and any guidance you receive from your therapist, doctor, or other medical professional takes precedence.
         </p>
       </div>
     </>
