@@ -85,7 +85,7 @@ class SimpleForm extends Component {
           // },
           {
             id: "reprocessing-0",
-            message: "We've prepared a set of writing prompts for you based on empirically validated research. Working through these prompts should allow you to reprocess + reintegrate some of your memories.",
+            message: "We've prepared a set of writing prompts for you based on empirically validated research. Working through these prompts should allow you to reprocess and reintegrate some of your memories.",
             trigger: "reprocessing-option-prompt"
 
           },
@@ -111,49 +111,100 @@ class SimpleForm extends Component {
             You can do this in the box below, or if you’d prefer, take a piece of paper and write it down on your own.
             
             When you’re done, take a deep breath and hit "I'm finished."`,
-            trigger: "finished-writing-options"
+            trigger: "writing-submission-box"
+          },
+          {
+            id:"writing-submission-box", 
+            user: true,
+            trigger:"finished-writing-options"
           },
           {
             id: "reprocessing-2",
             message: `Today, you’ll be diving further into the details of your trauma. The purpose of this is to help your mind craft a better narrative around what happened so it can learn to handle the memory without fear.
             
-            For the next 20 minutes, write down the story of your trauma again, either in the box we’ll provide in the next section or in a journal, a Word document, or a piece of paper. Today, try to focus on the details. Write down as much as you remember—what exactly happened, where were you, who was there, how were you feeling, what were you thinking about. Try to be as specific as possible.
+            For the next 20 minutes, write down the story of your trauma again, either in this box here or in a journal, a Word document, or a piece of paper. Today, try to focus on the details. Write down as much as you remember—what exactly happened, where were you, who was there, how were you feeling, what were you thinking about. Try to be as specific as possible.
             When you're done, take a deep breath and hit "I'm finished."`,
-            trigger: "finished-writing-options"
+            trigger: "writing-submission-box"
           },
           {
             id: "reprocessing-3",
-            message: `For this first session, spend 10 minutes writing about the trauma starting at the beginning. You don’t need to finish the entire story, but spend the time giving a general overview of what happened.
-
-            You can do this in the box below, or if you’d prefer, take a piece of paper and write it down on your own.
-            
-            When you’re done, take a deep breath and hit "I'm finished."`,
-            trigger: "finished-writing-options"
+            message: `Today, you’ll be diving further into the details of your trauma. The purpose of this is to help your mind craft a better narrative around what happened so it can learn to handle the memory without fear.`,
+            trigger: "reprocessing-3-1"
+          },
+          {
+            id: "reprocessing-3-1",
+            message: "For the next 20 minutes, select a part of the trauma that still upsets you the most and write about that, either in the box below or in a journal, a Word document, or a piece of paper. Once you feel like you’ve written everything you need to about that down, start to write about how the trauma has affected your life. Has it changed your outlook? Your goals, your perspective, or how you see the world around you? How has it affected your relationships with others, both the people who are closest to you and the rest of the world around you? Really let yourself dive deeply and explore all of your thoughts and feelings.",
+            trigger: "reprocessing-3-2"
+          },
+          {
+            id: "reprocessing-3-2",
+            message: `When you’re done, take a deep breath and hit "I'm finished."`,
+            trigger: "writing-submission-box"
           },
           {
             id: "reprocessing-4",
-            message: `For this first session, spend 10 minutes writing about the trauma starting at the beginning. You don’t need to finish the entire story, but spend the time giving a general overview of what happened.
-
-            You can do this in the box below, or if you’d prefer, take a piece of paper and write it down on your own.
-            
-            When you’re done, take a deep breath and hit "I'm finished."`,
-            trigger: "finished-writing-options"
+            message: `For our 20-minute writing exercise today, continue to write about the trauma, either in the box we’ll provide in the next section or in a journal, a Word document, or a piece of paper. As with the last session, you can continue to write about a specific part or detail of the trauma that feels the worst when you think about it. And continue to dive further into how the trauma has changed your life. What has changed about you, your life, or how you view the world?`,
+            trigger: "reprocessing-4-1"
           },
-                    {
-            id: "reprocessing-5",
-            message: `For this first session, spend 10 minutes writing about the trauma starting at the beginning. You don’t need to finish the entire story, but spend the time giving a general overview of what happened.
+          {
+            id: "reprocessing-4-1",
+            message: `As always, try to be as specific as possible. The deeper you are able to explore what happened and how you think and feel about it, the more you will be able to heal.
 
-            You can do this in the box below, or if you’d prefer, take a piece of paper and write it down on your own.
-            
             When you’re done, take a deep breath and hit "I'm finished."`,
-            trigger: "finished-writing-options"
+            trigger: "writing-submission-box"
+          },
+          {
+            id: "reprocessing-5",
+            message: `
+            For this final 20-minute writing session, as always, you can use the box we’ll provide in the next section, or a journal, a Word document, or a piece of paper. Continue to write about your thoughts and feelings about the trauma and how it has affected your life. Since it’s the last day of the program, you also can start to “wrap up” your writing if you’d like by exploring the way the trauma is related to your life today or your life in the future.`,
+            trigger: "reprocessing-5-1"
+          },
+          {
+            id: "reprocessing-5-1",
+            message: `As always, try to be as specific as possible. The deeper you are able to explore what happened and how you think and feel about it, the more you will be able to heal.`,
+            trigger: "writing-submission-box"
           },
           {
             id:"finished-writing-options", 
             options:[
-            {value:"y", label:"I'm finished", end: true}, // TO DO: EXPAND
+            {value:"y", label:"I'm finished", trigger: "reprocessing-session-close"}, // TO DO: EXPAND
             {value:"n", label:"Take me back to the beginning", trigger: "next"},
             ] 
+          },
+          {
+            id: "reprocessing-session-close",
+            message: `Take a minute to appreciate yourself for showing up today and for all of the four days before this one. You did it!
+            `,
+            trigger: "reprocessing-session-close-2"
+          },
+          {
+            id: "reprocessing-session-close-2",
+            message: "Now take five deep breaths, inhaling through your nose and exhaling through your mouth, and observing your mind and body. Without any judgment, just take this time to check in with yourself.",
+            trigger: "finished-breathing"
+          },
+          {
+            id: "finished-breathing",
+            options: [
+              {value: 1, label: "I'm finished", trigger: "end-feeling-measure"},
+              {value: 2, label: "I have feedback about how that went", trigger: "feedback"}
+            ]
+          },
+          {
+            id: "end-feeling-measure",
+            message: `Before we sign out, let’s check in.
+            
+                While you were writing about your trauma today, how anxious or distressed did you feel? On a scale of 0 to 100, with 0 being totally relaxed and 100 being the highest anxiety or distress you’ve ever felt.`,
+            trigger: "feeling-submission-box"
+          },
+          {
+            id: "feeling-submission-box",
+            user: true,
+            trigger: "next"
+          },
+          {
+            id: "feedback", //TO DO: CHANGE THIS TO GETTING SENT TO THE BACKEND 
+            message: "if you have feedback for us, please contact us at our main website: hellorebound.com/contact. We're always looking for ways to improve your experience",
+            trigger: "next"
           },
           // {
           //   id: "pcl-5",
@@ -246,7 +297,74 @@ class SimpleForm extends Component {
           {
             id: "assess-ready-for-grounding",
             message: "are you ready?",
-            end: true //START HERE
+            trigger: "grounding-readiness"
+          },
+          {
+            id: "grounding-readiness",
+            options: [
+              {value: 1, label: "Yes", trigger: "grounding-exercise"},
+              {value: 2, label: "No, take me back", trigger: "next"}
+            ]
+          },
+          {
+            id: "grounding-exercise",
+            message: "Inhale deeply. Exhale completely. In this exercise, we’ll use your five senses to help ground you.",
+            trigger: "grounding-exercise-1"
+          },
+          {
+            id: "grounding-exercise-1",
+            message: "Step 1: Acknowledge five things you see around you. It could be your keyboard, to a spot on the floor, to anything else in your surroundings.",
+            trigger: "user-completed-grounding"
+          },
+          {
+            id: "user-completed-grounding-1",
+            options: [
+              {label: "Just did this", trigger: "grounding-exercise-2"}
+            ]
+          },
+          {
+            id: "grounding-exercise-2",
+            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            trigger: "user-completed-grounding-2"
+          },
+          {
+            id: "user-completed-grounding-2",
+            options: [
+              {label: "Just did this", trigger: "grounding-exercise-3"}
+            ]
+          },
+          {
+            id: "grounding-exercise-3",
+            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            trigger: "user-completed-grounding-3"
+          },
+          {
+            id: "user-completed-grounding-3",
+            options: [
+              {label: "Just did this", trigger: "grounding-exercise-4"}
+            ]
+          },
+          {
+            id: "grounding-exercise-4",
+            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            trigger: "user-completed-grounding-4"
+          },
+          {
+            id: "user-completed-grounding-4",
+            options: [
+              {label: "Just did this", trigger: "grounding-exercise-5"}
+            ]
+          },
+          {
+            id: "grounding-exercise-5",
+            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            trigger: "user-completed-grounding-4"
+          },
+          {
+            id: "user-completed-grounding-5",
+            options: [
+              {label: "Just did this", trigger: "grounding-conclusion"}
+            ]
           },
           {
             id: "grounding-resources",
