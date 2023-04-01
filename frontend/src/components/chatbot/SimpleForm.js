@@ -314,7 +314,7 @@ class SimpleForm extends Component {
           {
             id: "grounding-exercise-1",
             message: "Step 1: Acknowledge five things you see around you. It could be your keyboard, to a spot on the floor, to anything else in your surroundings.",
-            trigger: "user-completed-grounding"
+            trigger: "user-completed-grounding-1"
           },
           {
             id: "user-completed-grounding-1",
@@ -335,7 +335,7 @@ class SimpleForm extends Component {
           },
           {
             id: "grounding-exercise-3",
-            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            message: "Step 3: Listen for three sounds around you. This could be any external sound like a car driving down the street or water running from a faucet. If you can hear your belly rumbling, that counts!",
             trigger: "user-completed-grounding-3"
           },
           {
@@ -346,7 +346,7 @@ class SimpleForm extends Component {
           },
           {
             id: "grounding-exercise-4",
-            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
+            message: "Step 4: Acknowledge two things you can smell. Maybe you are in your office and smell pencil, or maybe you are in your bedroom and smell a pillow. If you need to take a brief walk to find a scent you could smell soap in your bathroom, or nature outside.",
             trigger: "user-completed-grounding-4"
           },
           {
@@ -357,14 +357,29 @@ class SimpleForm extends Component {
           },
           {
             id: "grounding-exercise-5",
-            message: "Step 2: Touch four things around you. It could be your hair, a table, or the ground under your feet. Notice how those things feel.",
-            trigger: "user-completed-grounding-4"
+            message: "Step 5: Acknowledge one thing you can taste. What does the inside of your mouth taste like—gum, coffee, or the sandwich from lunch?",
+            trigger: "user-completed-grounding-5"
           },
           {
             id: "user-completed-grounding-5",
             options: [
-              {label: "Just did this", trigger: "grounding-conclusion"}
+              {label: "Just did this", trigger: "grounding-conclusion-question"}
             ]
+          },
+          {
+            id: "grounding-conclusion-question",
+            message: `Great work. Over time, as you do more grounding exercises, you might start to notice that they have a greater effect on your mood overall. Before continuing, take a second to notice how you feel. What feelings come to mind?`,
+            trigger: "grounding-user-feeling"
+          },
+          {
+            id: "grounding-user-feeling",
+            user: true,
+            trigger: "grounding-thanks"
+          },
+          {
+            id: "grounding-thanks",
+            message: "thanks for sharing.",
+            trigger: "next"
           },
           {
             id: "grounding-resources",
