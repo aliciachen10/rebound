@@ -89,8 +89,8 @@ class SimpleForm extends Component {
           {
             id: "science-what-else",
             options: [
-              {id:1, label: "what else?", trigger: "science-3"},
-              {id: 2, label: "ok, thanks. Take me back.", trigger: "next"}
+              {value: 1, label: "what else?", trigger: "science-3"},
+              {value: 2, label: "ok, thanks. Take me back.", trigger: "next"}
             ]
           },
           {
@@ -101,8 +101,8 @@ class SimpleForm extends Component {
           {
             id: "science-what-else-2",
             options: [
-              {id: 1, label: "tell me more", trigger: "science-4"},
-              {id: 2, label: "sounds good, take me back.", trigger: "next"}
+              {value: 1, label: "tell me more", trigger: "science-4"},
+              {value: 2, label: "sounds good, take me back.", trigger: "next"}
             ]
           },
           {
@@ -127,25 +127,41 @@ class SimpleForm extends Component {
           {
             id: "reprocessing-0",
             message: "We've prepared a set of writing prompts for you based on empirically validated research. Working through these prompts should allow you to reprocess and reintegrate some of your memories.",
+            // end: true
+            // trigger: "reprocessing-options"
             trigger: "reprocessing-guideline-option"
           },
           {
             id: "reprocessing-guideline-option",
-            option: [
-              {id: 1, label: "Tell me more", trigger: "reprocessing-guidelines"},
-              {id: 2, label: "Take me back", trigger: "next"}
+            options: [
+              {value: 1, label: "Tell me more", trigger: "reprocessing-guidelines"}, // reprocessing-guidelines
+              {value: 2, label: "Take me back", trigger: "next"}
             ]
           },
           {
             id: "reprocessing-guidelines",
             message: `Note: the more you process and express emotion and make meaning from your experience over the course of these exercises, the more likely you are to experience clinically significant symptom improvements.`,
+            // end: true,
             trigger: "reprocessing-guidelines-2"
           },
           {
             id: "reprocessing-guidelines-2",
-            message: `Also: This is usually effective only when the same traumatic experience is the focus, rather than writing about different ones in each session.`,
+            message: `Also: This is usually effective only when the same traumatic experience is the focus, rather than writing about different ones in each session. Does this generally make sense?`,
+            trigger: "reprocessing-sense-check"
+          },
+          {
+            id: "reprocessing-sense-check",
+            options: [
+              {value: 1, label: "Yes", trigger: "reprocessing-option-prompt"},
+              {value: 2, label: "No", trigger: "wet-information"}
+            ],
             trigger: "reprocessing-option-prompt"
 
+          },
+          {
+            id: "wet-information",
+            message: "If you'd like to learn more about written exposure, we'd recommend the VA website: https://www.ptsd.va.gov/professional/treat/txessentials/written_exposure_therapy.asp", 
+            trigger: "reprocessing-option-prompt"
           },
           {
             id: "reprocessing-option-prompt",
@@ -257,6 +273,28 @@ class SimpleForm extends Component {
           {
             id: "feeling-submission-box",
             user: true,
+            trigger: "feeling-thank-you"
+          },
+          {
+            id: "feeling-thank-you",
+            message: "Thanks for sharing. Did you enter a number above 80?", // TO DO: AUTOMATE THIS
+            trigger: "feeling-80"
+          },
+          {
+            id: "feeling-80",
+            options: [
+              {value: 1, label: "Yes", trigger: "feeling-grounding-80"},
+              {value: 2, label: "No", trigger: "feeling-not-80"}
+            ]
+          },
+          {
+            id: "feeling-grounding-80",
+            message: "I'm sorry you're not feeling well. Please remember to prioritize your safety, and that if you need to, we'd encourage you to speak to a professional (therapist), and reach out to your support network, or if you are worried about your safety, call 911.",
+            trigger: "next"
+          },
+          {
+            id: "feeling-not-80", //TO DO: ADD IN SAFETY PLANNING FOR EACH PERSON 
+            message: "Ok, just checking in. If you're not feeling well, we'd still invite you to do a grounding exercise if you need. If you've developed a safety plan (we'll be developing a way you can do that on this site soon), we invite you to default to that.",
             trigger: "next"
           },
           {
@@ -264,6 +302,10 @@ class SimpleForm extends Component {
             message: "if you have feedback for us, please contact us at our main website: hellorebound.com/contact. We're always looking for ways to improve your experience",
             trigger: "next"
           },
+
+
+
+
           // {
           //   id: "pcl-5",
           //   value: "Thanks for mentioning that. We'll walk you through a 20-question survey that will help you understand how severe your symptoms are and whether you may qualify for a diagnosis of PTSD. Note that this is not medical advice and to get a real diagnosis, you'll have to see a provider. We use a questionnaire that has been validated in the trauma research literature by clinical psychologists. Are you ready?",
