@@ -64,10 +64,51 @@ class SimpleForm extends Component {
             id: "begin-options",
             options: [
               {value:1, label:"Assess the severity of my symptoms", end: true}, //trigger: "pcl-5"
-              {value: 2, label:"Learn why I should trust you ", end: true}, //trigger: "science"
+              {value: 2, label:"Learn why I should trust you ", trigger: "science"}, //trigger: "science"
               {value: 3, label: "Learn how to calm myself during periods of anxiety or panic", trigger: "grounding"}, //trigger: "grounding"
               {value: 4, label: "Get started reprocessing experiences in an evidence-based fashion", trigger: "reprocessing-0"} //trigger: "reprocessing"
             ]
+          },
+          {
+            id: "science",
+            message: "We are advocates of evidence-based, research backed ways of processing traumatic memories and educating folks about how to get better. All of the concepts and prompts proposed here are based on research literature conducted by clinical psychologists and trauma researchers.",
+            trigger: "science-choices"
+          },
+          {
+            id: "science-choices",
+            options: [
+              {value: 1, label: "what about how you propose helping folks get better?", trigger: "science-2"},
+              {value: 2, label: "ok, that makes sense. take me back.", trigger: "next"}
+            ]
+          },
+          {
+            id: "science-2",
+            message: "We are advocates of a treatment called written exposure therapy. Why? Writing about traumatic or distressing experiences with detail has been shown to improve both psychological and physical health. It has been shown to result in reductions in PTSD symptoms.",
+            trigger: "science-what-else"
+          },
+          {
+            id: "science-what-else",
+            options: [
+              {id:1, label: "what else?", trigger: "science-3"},
+              {id: 2, label: "ok, thanks. Take me back.", trigger: "next"}
+            ]
+          },
+          {
+            id: "science-3",
+            message: "It’s also been shown to be effective for different types of people with different kinds of trauma (war, interpersonal violence, situational violence), as well as those with varying levels of trauma severity.",
+            trigger: "science-what-else-2"
+          },
+          {
+            id: "science-what-else-2",
+            options: [
+              {id: 1, label: "tell me more", trigger: "science-4"},
+              {id: 2, label: "sounds good, take me back.", trigger: "next"}
+            ]
+          },
+          {
+            id: "science-4",
+            message: "Written exposure therapy has been shown to be as effective as cognitive processing therapy, a more intensive form of PTSD treatment. It’s been effective for folks regardless of age, gender, number of other diagnoses, or depressive symptom severity.",
+            trigger: "next"
           },
           // {
           //   id:"begin-options", 
@@ -86,6 +127,23 @@ class SimpleForm extends Component {
           {
             id: "reprocessing-0",
             message: "We've prepared a set of writing prompts for you based on empirically validated research. Working through these prompts should allow you to reprocess and reintegrate some of your memories.",
+            trigger: "reprocessing-guideline-option"
+          },
+          {
+            id: "reprocessing-guideline-option",
+            option: [
+              {id: 1, label: "Tell me more", trigger: "reprocessing-guidelines"},
+              {id: 2, label: "Take me back", trigger: "next"}
+            ]
+          },
+          {
+            id: "reprocessing-guidelines",
+            message: `Note: the more you process and express emotion and make meaning from your experience over the course of these exercises, the more likely you are to experience clinically significant symptom improvements.`,
+            trigger: "reprocessing-guidelines-2"
+          },
+          {
+            id: "reprocessing-guidelines-2",
+            message: `Also: This is usually effective only when the same traumatic experience is the focus, rather than writing about different ones in each session.`,
             trigger: "reprocessing-option-prompt"
 
           },
