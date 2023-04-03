@@ -12,8 +12,8 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 
 const nhost = new NhostClient({
-  subdomain: "hwgafkbbecxxcxgnptvr",
-  region: "us-east-1"
+  subdomain: "localhost",
+  // region: "us-east-1"
   // subdomain: process.env.REACT_APP_NHOST_SUBDOMAIN,
   // region: process.env.REACT_APP_NHOST_REGION
 })

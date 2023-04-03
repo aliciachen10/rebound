@@ -57,6 +57,8 @@ const Layout = () => {
     },
   ];
 
+  console.log(error)
+
   return (
     <div>
       <header className={styles.header}>

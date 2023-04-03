@@ -4,6 +4,14 @@ import { useSignUpEmailPassword } from "@nhost/react"
 import { Link, Navigate } from "react-router-dom"
 import Input from "./Input"
 import Spinner from "./Spinner"
+import { NhostClient } from '@nhost/nhost-js'
+
+const nhost = new NhostClient({
+  subdomain: "localhost",
+  // region: "us-east-1"
+  // subdomain: process.env.REACT_APP_NHOST_SUBDOMAIN,
+  // region: process.env.REACT_APP_NHOST_REGION
+})
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("")
@@ -14,16 +22,23 @@ const SignUp = () => {
   const { signUpEmailPassword, isLoading, isSuccess, needsEmailVerification, isError, error } =
     useSignUpEmailPassword()
 
-  const handleOnSubmit = (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault()
 
-    signUpEmailPassword(email, password, {
-      displayName: `${firstName} ${lastName}`.trim(),
-      metadata: {
-        firstName,
-        lastName
-      }
+    // console.log(email, password, firstName, lastName)
+
+    await nhost.auth.signUp({
+      email: 'joe@example.com',
+      password: 'secret-password'
     })
+
+    // signUpEmailPassword(email, password, {
+    //   displayName: `${firstName} ${lastName}`.trim(),
+    //   metadata: {
+    //     firstName,
+    //     lastName
+    //   }
+    // })
   }
 
   if (isSuccess) {
@@ -36,7 +51,7 @@ const SignUp = () => {
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles["logo-wrapper"]}>
-          <img src={process.env.PUBLIC_URL + "logo.svg"} alt="logo" />
+          <img src={process.env.PUBLIC_URL + "rebound-logo-large.png"} alt="logo" />
         </div>
 
         {needsEmailVerification ? (
