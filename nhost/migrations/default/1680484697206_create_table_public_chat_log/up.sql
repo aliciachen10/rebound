@@ -1,0 +1,1 @@
+CREATE TABLE "public"."chat_log" ("row_id" bigserial NOT NULL, "chat" jsonb, "time" timestamptz NOT NULL, "user_id" uuid NOT NULL, PRIMARY KEY ("row_id") , FOREIGN KEY ("user_id") REFERENCES "auth"."users"("id") ON UPDATE restrict ON DELETE restrict, UNIQUE ("row_id"));
